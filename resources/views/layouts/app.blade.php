@@ -34,10 +34,10 @@
               </a>
             </form>
           @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Log in</a>
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Se connecter</a>
 
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
+              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">S'enregistrer</a>
             @endif
           @endauth
         </div>
@@ -60,10 +60,10 @@
             </div>
             <div>
               <select name="category_add" id="category_add" class="w-full px-4 py-2 bg-gray-100 border-none rounded-xl">
-                <option value="Category 1">Category 1</option>
-                <option value="Category 2">Category 2</option>
-                <option value="Category 3">Category 3</option>
-                <option value="Category 4">Category 4</option>
+                <option value="Category 1">Categorie 1</option>
+                <option value="Category 2">Categorie 2</option>
+                <option value="Category 3">Categorie 3</option>
+                <option value="Category 4">Categorie 4</option>
               </select>
             </div>
             <div>

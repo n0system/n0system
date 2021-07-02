@@ -2,10 +2,10 @@
   <div class="flex space-x-6 filters">
     <div class="w-1/3">
       <select name="category" id="category" class="w-full px-4 py-2 border-none rounded-xl">
-        <option value="Category 1">Category 1</option>
-        <option value="Category 2">Category 2</option>
-        <option value="Category 3">Category 3</option>
-        <option value="Category 4">Category 4</option>
+        <option value="Category 1">Categorie 1</option>
+        <option value="Category 2">Categorie 2</option>
+        <option value="Category 3">Categorie 3</option>
+        <option value="Category 4">Categorie 4</option>
       </select>
     </div>
     <div class="w-1/3">
@@ -28,6 +28,7 @@
 
   </div> <!-- fin des filtres -->
   <div class="my-6 space-y-6 ideas-container">
+    <!-- debut idea -container  -->
     <div class="flex transition duration-150 ease-in bg-white cursor-pointer idea-container rounded-xl hover:shadow-card ">
       <div class="px-5 py-8 border-r border-gray-100">
         <div class="text-center">
@@ -39,11 +40,13 @@
             Voter</button>
         </div>
       </div>
-      <div class="flex px-2 py-6">
-        <a href="#" class="flex-none">
-          <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="avatar" class="w-14 h-14 rounded-xl">
-        </a>
-        <div class="mx-4">
+      <div class="flex flex-1 px-2 py-6">
+        <div class="flex-none">
+          <a href="#" class="">
+            <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="avatar" class="w-14 h-14 rounded-xl">
+          </a>
+        </div>
+        <div class="w-full mx-4">
           <h4 class="text-xl font-semibold">
             <a href="#" class="hover:underline">Lorem ipsum dolor sit amet </a>
           </h4>
@@ -62,7 +65,7 @@
             <div class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
               <div class="">il y a 10h</div>
               <div class="">&bull;</div>
-              <div class="">Category 1</div>
+              <div class="">Categorie 1</div>
               <div class="">&bull;</div>
               <div class="">3 commentaires</div>
             </div>
@@ -70,7 +73,7 @@
               <div class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">
                 Ouvrir
               </div>
-              <button class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+              <button class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
 
                 <ul class="absolute w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                   <li>
@@ -90,7 +93,8 @@
             </div>
           </div>
         </div>
-      </div><!-- fin idea-container -->
+      </div>
+      <!-- fin idea-container -->
     </div>
 
 </x-app-layout>

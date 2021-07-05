@@ -69,13 +69,13 @@
               <div class="">&bull;</div>
               <div class="">3 commentaires</div>
             </div>
-            <div class="flex items-center space-x-2">
+            <div x-data="{isOpen: false}" class="flex items-center space-x-2">
               <div class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">
                 Ouvrir
               </div>
-              <button class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+              <button @click="isOpen = !isOpen" class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
 
-                <ul class="absolute w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
+                <ul x-show.transition.origin.top.left="isOpen" x-cloak @keydown.escape.window="isOpen = false" @click.away="isOpen = false" class="absolute w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                   <li>
                     <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                       Marquer comme spam

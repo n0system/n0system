@@ -19,9 +19,9 @@
 </head>
 
 <body class="font-sans text-sm text-gray-900 text bg-gray-background">
-  <header class="flex items-center justify-between px-8 py-4">
+  <header class="flex flex-col items-center justify-between px-8 py-4 md:flex-row ">
     <a href="#"><img src="{{ asset('img/logo.svg') }}" alt="logo"></a>
-    <div class="flex items-center">
+    <div class="flex items-center mt-2 md:mt-0">
       @if (Route::has('login'))
         <div class="px-6 py-4">
           @auth
@@ -34,10 +34,10 @@
               </a>
             </form>
           @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Se connecter</a>
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline md:text-lg">Connexion</a>
 
             @if (Route::has('register'))
-              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">S'enregistrer</a>
+              <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Inscription</a>
             @endif
           @endauth
         </div>
@@ -48,9 +48,9 @@
     </div>
 
   </header>
-  <main class="container flex mx-auto max-w-custom">
-    <div class="mr-5 w-70">
-      <div class="mt-16 bg-white border-2 border-blue rounded-xl">
+  <main class="container flex flex-col mx-auto max-w-custom md:flex-row">
+    <div class="mx-auto md:mx-0 md:mr-5 w-70">
+      <div class="mt-16 bg-white border-2 md:sticky top-8 border-blue rounded-xl">
         <div class="px-6 py-2 pt-6 text-center ">
           <h3 class="text-base font-semibold">Ajouter une idée</h3>
           <p class="mt-4 text-xs">Nous vous ecoutons !</p>
@@ -85,8 +85,8 @@
       </div>
     </div>
 
-    <div class="w-175">
-      <nav class="flex items-center justify-between text-xs">
+    <div class="w-full px-2 md:px-0 md:w-175">
+      <nav class="items-center justify-between hidden text-xs md:flex ">
         <ul class="flex pb-3 space-x-10 font-semibold uppercase border-b-4">
           <li><a href="#" class="pb-3 border-b-4 border-blue">Toutes les idées(87)</a></li>
           <li><a href="#" class="pb-3 text-gray-400 transition duration-150 ease-in border-b-4 hover:border-blue">

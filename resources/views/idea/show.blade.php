@@ -17,24 +17,16 @@
             </div>
             <div class="w-full mx-2 md:mx-4">
                 <h4 class="text-xl font-semibold">
-                    <a href="#" class="hover:underline">Lorem ipsum dolor sit amet </a>
+                    <a href="#" class="hover:underline">{{ $idea->title }} </a>
                 </h4>
                 <div class="mt-3 text-gray-600">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, autem, aliquid quae quisquam
-                    consequuntur a earum quos quam fugit voluptate voluptatem necessitatibus quod adipisci
-                    assumenda. Nisi eveniet illo officiis quidem nulla, commodi sunt eaque id maxime quis blanditiis
-                    quisquam velit, fuga rerum nostrum mollitia laboriosam eos exercitationem, tenetur possimus
-                    error ipsa deserunt. Maxime neque doloremque vitae sed provident saepe a nihil enim soluta,
-                    rerum natus molestias, facilis asperiores delectus reiciendis quibusdam illo iure, ea quos
-                    quaerat. Vel nesciunt illo eius. Quasi laudantium commodi totam, distinctio fugit veritatis.
-                    Quia nemo similique culpa dolorem, eveniet sed perspiciatis nisi voluptatibus officia, expedita
-                    veritatis!
+                    {{ $idea->description }}
                 </div>
                 <div class="flex flex-col justify-between mt-6 md:items-center md:flex-row">
                     <div class="flex items-center space-x-2 text-xs font-semibold text-gray-400">
-                        <div class="hidden font-bold text-gray-900 md:block">John Doe</div>
+                        <div class="hidden font-bold text-gray-900 md:block">{{ $idea->user->name }}</div>
                         <div class="hidden md:block">&bull;</div>
-                        <div class="">il y a 10h</div>
+                        <div class="">{{ $idea->created_at->diffForHumans() }}</div>
                         <div class="">&bull;</div>
                         <div class="">Categorie 1</div>
                         <div class="">&bull;</div>

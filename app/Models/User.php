@@ -40,4 +40,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     *
+     * @param Type $var Description
+     * @return type
+     * @throws conditon
+     **/
+    public function ideas()
+    {
+        return $this->hasMany(Idea::class);
+    }
 }

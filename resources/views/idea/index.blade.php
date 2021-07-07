@@ -33,7 +33,7 @@
             <!-- debut idea -container  -->
             <div x-data @click="
             const clicked = $event.target
-            const target = .tagName.toLowerCase()
+            const target = clicked.tagName.toLowerCase()
             const ignores = ['button','svg','path','a']
                 if(! ignores.includes(target))
                 { clicked.closest('.idea-container').querySelector('.idea-link').click() }
@@ -65,7 +65,7 @@
                             <div class="flex items-center text-xs font-semibold text-gray-400 md:space-x-2">
                                 <div class="">{{ $idea->created_at->diffForHumans() }}</div>
                                 <div class="">&bull;</div>
-                                <div class="">Categorie 1</div>
+                                <div class="">{{ $idea->category->name }}</div>
                                 <div class="">&bull;</div>
                                 <div class="">3 commentaires</div>
                             </div>

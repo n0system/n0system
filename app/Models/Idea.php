@@ -30,4 +30,8 @@ class Idea extends Model
     {
         return $this->belongsTo(User::class);
     }
+    function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

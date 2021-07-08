@@ -70,8 +70,8 @@
                                 <div class="">3 commentaires</div>
                             </div>
                             <div x-data="{isOpen: false}" class="flex items-center mt-4 space-x-2 md:mt-0">
-                                <div class="px-4 py-2 font-bold leading-none text-center uppercase bg-gray-200 rounded-full text-xxs w-28 h-7">
-                                    Ouvrir
+                                <div class="{{ $idea->status->classes }} px-4 py-2 font-bold leading-none text-center uppercase  rounded-full text-xxs w-28 h-7">
+                                    {{ $idea->status->name }}
                                 </div>
                                 <button @click="isOpen = !isOpen" class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
 

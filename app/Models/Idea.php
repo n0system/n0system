@@ -34,4 +34,8 @@ class Idea extends Model
     {
         return $this->belongsTo(Category::class);
     }
+    function status()
+    {
+        return $this->belongsTo(Status::class);
+    }
 }

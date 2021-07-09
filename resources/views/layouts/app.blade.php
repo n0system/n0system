@@ -29,8 +29,9 @@
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                                                                                                                        this.closest('form').submit();">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                                                                                                                                                                                                this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </a>
                         </form>
@@ -54,34 +55,28 @@
             <div class="mt-16 bg-white border-2 md:sticky top-8 border-blue rounded-xl">
                 <div class="px-6 py-2 pt-6 text-center ">
                     <h3 class="text-base font-semibold">Ajouter une idée</h3>
-                    <p class="mt-4 text-xs">Nous vous ecoutons !</p>
-                    <form action="#" method="post" class="px-4 py-6 space-y-4 ">
-                        <div>
-                            <input type="text" class="w-full px-4 py-2 text-sm placeholder-gray-900 bg-gray-100 border-none rounded-xl" placeholder="Votre idée">
-                        </div>
-                        <div>
-                            <select name="category_add" id="category_add" class="w-full px-4 py-2 bg-gray-100 border-none rounded-xl">
-                                <option value="Category 1">Categorie 1</option>
-                                <option value="Category 2">Categorie 2</option>
-                                <option value="Category 3">Categorie 3</option>
-                                <option value="Category 4">Categorie 4</option>
-                            </select>
-                        </div>
-                        <div>
-                            <textarea name="idea" id="idea" cols="30" rows="4" class="w-full px-4 py-2 text-sm placeholder-gray-900 bg-gray-100 rounded-xl" placeholder="Description"></textarea>
-                        </div>
-                        <div class="flex items-center justify-between space-x-3">
-                            <button type="button" class="flex items-center justify-center w-1/2 px-6 py-3 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-                                <svg class="flex-none w-5 text-gray-600 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                                </svg>
-                                <span class="ml-2">Pièce jointe</span>
-                            </button>
-                            <button type="submit" class="flex items-center justify-center w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
-                                <span class="ml-2">Transmettre</span>
-                            </button>
-                        </div>
-                    </form>
+                    <p class="mt-4 text-xs">
+                        @auth
+                            Nous vous ecoutons !
+                        @else
+                            Veuillez-vous connecter pour creer une idée .
+
+                        @endauth
+                    </p>
+                    @auth
+                        <livewire:create-idea>
+                        @else
+                            <div class="my-6 text-center">
+                                <a href="{{ route('login') }}" class="justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
+                                    <span class="">Connexion</span>
+                                </a>
+                                <a class="justify-center inline-block w-1/2 px-6 py-3 mt-4 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 mt h-11 rounded-xl hover:border-gray-400">
+                                    <span class="">Inscription</span>
+                                    a
+                                </a>
+                            </div>
+                        @endauth
+
                 </div>
             </div>
         </div>

@@ -64,7 +64,7 @@
                         @endauth
                     </p>
                     @auth
-                        <livewire:create-idea>
+                        <livewire:create-idea />
                         @else
                             <div class="my-6 text-center">
                                 <a href="{{ route('login') }}" class="justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">

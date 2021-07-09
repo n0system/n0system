@@ -52,12 +52,24 @@
                     </div>
                     <div class="flex items-center mt-4 md:mt-0 md:hidden">
                         <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
-                            <div class="text-sm font-bold leading-none">{{$votesCount}}</div>
+                            <div class="text-sm font-bold leading-none @if ($hasVoted)
+                            text-blue
+                            @endif">{{$votesCount}}</div>
                             <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
                         </div>
+                        @if ($hasVoted)
                         <button
-                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
-                            Voter</button>
+                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in border bg-blue rounded-xl text-xxs hover:bg-blue-hover">
+                            Voté
+                        </button>
+
+                        @else
+                        <button
+                        class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
+                        Voter
+                    </button>
+                        @endif
+
                     </div>
                 </div>
             </div>
@@ -179,15 +191,26 @@
                 </div>
             </div>
         </div>
+<!-- fin buttons-container -->
         <div class="items-center hidden space-x-3 md:flex">
             <div class="px-3 py-2 font-semibold text-center bg-white rounded-xl">
-                <div class="text-xl leading-snug">{{$votesCount}}</div>
+                <div class="text-xl leading-snug  @if ($hasVoted)
+                text-blue
+                @endif">{{$votesCount}}</div>
                 <div class="text-xs leading-none text-gray-400">Votes </div>
             </div>
+            @if ($hasVoted)
             <button type="button"
-                class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-                <span class="">Voter </span>
-            </button>
+            class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
+            <span class="">Voté </span>
+        </button>
+            @else
+            <button type="button"
+            class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
+            <span class="">Voter </span>
+        </button>
+            @endif
+
 
         </div>
     </div><!-- fin buttons-container -->

@@ -65,9 +65,9 @@
 
                         @else
                         <button
-                        class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
-                        Voter
-                    </button>
+                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
+                            Voter
+                        </button>
                         @endif
 
                     </div>
@@ -191,7 +191,7 @@
                 </div>
             </div>
         </div>
-<!-- fin buttons-container -->
+        <!-- fin buttons-container -->
         <div class="items-center hidden space-x-3 md:flex">
             <div class="px-3 py-2 font-semibold text-center bg-white rounded-xl">
                 <div class="text-xl leading-snug  @if ($hasVoted)
@@ -200,15 +200,15 @@
                 <div class="text-xs leading-none text-gray-400">Votes </div>
             </div>
             @if ($hasVoted)
-            <button type="button"
-            class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
-            <span class="">Voté </span>
-        </button>
+            <button type="button" wire:click.prevent="vote"
+                class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
+                <span class="">Voté </span>
+            </button>
             @else
-            <button type="button"
-            class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-            <span class="">Voter </span>
-        </button>
+            <button type="button" wire:click.prevent="vote"
+                class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
+                <span class="">Voter </span>
+            </button>
             @endif
 
 

@@ -14,13 +14,13 @@ const ignores = ['button','svg','path','a']
         </div>
         <div class="mt-8">
             @if ($hasVoted)
-            <button
-            class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border bg-blue text-xxs hover:bg-blue-hover rounded-xl">
-            Voté</button>
+            <button wire:click.prevent="vote"
+                class="w-20 px-4 py-3 font-bold text-white uppercase transition duration-150 ease-in border bg-blue text-xxs hover:bg-blue-hover rounded-xl">
+                Voté</button>
             @else
-            <button
-            class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border text-xxs hover:border-gray-400 rounded-xl">
-            Voter</button>
+            <button wire:click.prevent="vote"
+                class="w-20 px-4 py-3 font-bold uppercase transition duration-150 ease-in bg-gray-200 border text-xxs hover:border-gray-400 rounded-xl">
+                Voter</button>
             @endif
 
 
@@ -78,11 +78,11 @@ const ignores = ['button','svg','path','a']
                         <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
                     </div>
                     @if ($hasVoted)
-                    <button
-                    class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
-                    Voté</button>
+                    <button wire:click.prevent="vote"
+                        class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
+                        Voté</button>
                     @else
-                    <button
+                    <button wire:click.prevent="vote"
                         class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
                         Voter</button>
 

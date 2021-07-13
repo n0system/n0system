@@ -13,6 +13,18 @@ class Status extends Model
     {
         return $this->hasMany(Idea::class);
     }
+    public static function getCount()
+    {
+        return Idea::query()
+            ->selectRaw("count(*) as all_statuses")
+            ->selectRaw("count(case when status_id = 1 then 1 end) as ouvert")
+            ->selectRaw("count(case when status_id = 2 then 1 end) as examination")
+            ->selectRaw("count(case when status_id = 3 then 1 end) as encours")
+            ->selectRaw("count(case when status_id = 4 then 1 end) as implementation")
+            ->selectRaw("count(case when status_id = 5 then 1 end) as clos")
+            ->first()
+            ->toArray();
+    }
 
     // function getColorClasses()
     // {

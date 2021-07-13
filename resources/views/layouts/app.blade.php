@@ -31,7 +31,7 @@
 
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                this.closest('form').submit();">
+                                                                                                                                                                                                                                            this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </a>
                         </form>
@@ -65,50 +65,26 @@
                     </p>
                     @auth
                         <livewire:create-idea />
-                        @else
-                            <div class="my-6 text-center">
-                                <a href="{{ route('login') }}" class="justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
-                                    <span class="">Connexion</span>
-                                </a>
-                                <a href="{{route('register')}}" class="justify-center inline-block w-1/2 px-6 py-3 mt-4 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 mt h-11 rounded-xl hover:border-gray-400">
-                                    <span class="">Inscription</span>
-                                </a>
-                            </div>
-                        @endauth
+                    @else
+                        <div class="my-6 text-center">
+                            <a href="{{ route('login') }}" class="justify-center inline-block w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
+                                <span class="">Connexion</span>
+                            </a>
+                            <a href="{{ route('register') }}" class="justify-center inline-block w-1/2 px-6 py-3 mt-4 text-xs font-semibold transition duration-150 ease-in bg-gray-200 border border-gray-200 mt h-11 rounded-xl hover:border-gray-400">
+                                <span class="">Inscription</span>
+                            </a>
+                        </div>
+                    @endauth
 
                 </div>
             </div>
         </div>
 
         <div class="w-full px-2 md:px-0 md:w-175">
-            <nav class="items-center justify-between hidden text-xs md:flex ">
-                <ul class="flex pb-3 space-x-10 font-semibold uppercase border-b-4">
-                    <li><a href="#" class="pb-3 border-b-4 border-blue">Toutes les idées(87)</a></li>
-                    <li><a href="#" class="pb-3 text-gray-400 transition duration-150 ease-in border-b-4 hover:border-blue">
-                            examiné(7)
-                        </a>
-                    </li>
-                    <li><a href="#" class="pb-3 text-gray-400 transition duration-150 ease-in border-b-4 hover:border-blue">
-                            En Traitement(1)
-                        </a>
-                    </li>
-                </ul>
-                <ul class="flex pb-3 space-x-10 font-semibold uppercase border-b-4">
-                    <li><a href="#" class="pb-3 text-gray-400 transition duration-150 ease-in border-b-4 hover:border-blue">
-                            Implementé(10)
-                        </a>
-                    </li>
-                    <li><a href="#" class="pb-3 text-gray-400 transition duration-150 ease-in border-b-4 hover:border-blue">
-                            Cloturé(54)
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-            <div class="mt-8">
-                {{ $slot }}
-            </div>
-
-
+            <livewire:status-filters>
+                <div class="mt-8">
+                    {{ $slot }}
+                </div>
         </div>
     </main>
     @livewireScripts

@@ -10,10 +10,10 @@
             </select>
         </div>
         <div class="w-full md:w-1/3">
-            <select name="other_filters" id="other_filters" class="w-full px-4 py-2 border-none rounded-xl">
-                <option value="Filtre 1">Filtre 1</option>
-                <option value="Filtre 2">Filtre 2</option>
-                <option value="Filtre 3">Filtre 3</option>
+            <select wire:model="filter" name="other_filters" id="other_filters" class="w-full px-4 py-2 border-none rounded-xl">
+                <option value="last">Récents</option>
+                <option value="best">Les Meilleurs</option>
+                <option value="myideas">Mes idées</option>
                 <option value="Filtre 4">Filtre 4</option>
             </select>
         </div>

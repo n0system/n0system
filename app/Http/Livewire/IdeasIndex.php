@@ -15,16 +15,29 @@ class IdeasIndex extends Component
     use WithPagination;
     public $status = 'All';
     public $category;
+    public $filter;
     protected $queryString = [
         'status',
-        'category'
-
+        'category',
+        'filter'
     ];
 
     protected $listeners = ['queryStringUpdatedStatus'];
     public function updatingCategory()
     {
         $this->resetPage();
+    }
+    public function updatingFilter()
+    {
+        $this->resetPage();
+    }
+    public function updatedFilter()
+    {
+        if ($this->filter == 'myideas') {
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
+        }
     }
 
     public function queryStringUpdatedStatus($newStatus)
@@ -48,6 +61,18 @@ class IdeasIndex extends Component
                         return $query
                             ->where('category_id', $categories->pluck('id', 'name')
                                 ->get($this->category));
+                    })
+                    ->when($this->filter && $this->filter == 'best', function ($query) {
+                        return $query
+                            ->orderByDesc('votes_count');
+                    })
+                    ->when($this->filter && $this->filter == 'last', function ($query) {
+                        return $query
+                            ->orderByDesc('created_at');
+                    })
+                    ->when($this->filter && $this->filter == 'myideas', function ($query) {
+                        return $query
+                            ->where('user_id', auth()->id());
                     })
                     ->addSelect([
                         'voted_by_user' => Vote::select('id')

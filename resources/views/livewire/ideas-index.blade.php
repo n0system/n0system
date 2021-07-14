@@ -18,7 +18,7 @@
             </select>
         </div>
         <div class="relative w-full md:w-2/3">
-            <input type="search" name="" id="" placeholder="Trouver une idée" class="w-full px-4 py-2 pl-8 placeholder-gray-900 bg-white border-none rounded-xl" />
+            <input wire:model="search" type="search" name="" id="" placeholder="Trouver une idée" class="w-full px-4 py-2 pl-8 placeholder-gray-900 bg-white border-none rounded-xl" />
             <div class="absolute top-0 flex items-center h-full ml-2">
                 <svg class="w-4 text-gray-700" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />

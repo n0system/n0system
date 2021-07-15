@@ -31,7 +31,7 @@
 
                             <a href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
-                                                                                                                                                                                                                                            this.closest('form').submit();">
+                                                                                                                                                                                                                                                            this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </a>
                         </form>
@@ -44,11 +44,13 @@
                     @endauth
                 </div>
             @endif
-            <a href="#">
-                <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="avatar" class="w-10 h-10 rounded-full ">
-            </a>
-        </div>
+            @auth
+                <a href="#">
+                    <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="avatar" class="w-10 h-10 rounded-full ">
+                </a>
+            @endauth
 
+        </div>
     </header>
     <main class="container flex flex-col mx-auto max-w-custom md:flex-row">
         <div class="mx-auto md:mx-0 md:mr-5 w-70">

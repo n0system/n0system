@@ -1,13 +1,13 @@
 <x-app-layout>
     <div class="">
-        <a href="/" class="flex items-center font-semibold hover:underline">
+        <a href="{{ $backUrl }}" class="flex items-center font-semibold hover:underline">
             <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
             </svg>
             <span class="ml-2">Toutes les idées </span>
         </a>
     </div>
-    <livewire:idea-show :idea="$idea"  :votesCount="$votesCount"/>
+    <livewire:idea-show :idea="$idea" :votesCount="$votesCount" />
     <!-- comments-container -->
     <div class="relative pt-4 my-8 mt-1 space-y-6 comments-container md:ml-22">
         <!-- comment-container -->
@@ -34,20 +34,16 @@
                             <div class="">il y a 10h</div>
                         </div>
                         <div x-data="{isOpen: false}" class="flex items-center space-x-2">
-                            <button @click="isOpen = !isOpen"
-                                class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-                                <ul x-show.transition.origin.top.left="isOpen" x-cloak
-                                    @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
+                            <button @click="isOpen = !isOpen" class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+                                <ul x-show.transition.origin.top.left="isOpen" x-cloak @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
                                     class="absolute z-30 w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Marquer comme spam
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Supprimer post
                                         </a>
                                     </li>
@@ -87,19 +83,15 @@
 
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button
-                                class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-                                <ul
-                                    class="absolute hidden w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
+                            <button class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+                                <ul class="absolute hidden w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Marquer comme spam
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Supprimer post
                                         </a>
                                     </li>
@@ -135,19 +127,15 @@
 
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button
-                                class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-                                <ul
-                                    class="absolute hidden w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
+                            <button class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+                                <ul class="absolute hidden w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Marquer comme spam
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                             Supprimer post
                                         </a>
                                     </li>

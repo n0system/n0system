@@ -30,9 +30,19 @@
     </div> <!-- fin des filtres -->
     <div class="my-6 space-y-6 ideas-container">
 
-        @foreach ($ideas as $idea)
+        @forelse ($ideas as $idea)
             <livewire:idea-index :key="$idea->id" :idea="$idea" :votesCount="$idea->votes_count" />
-        @endforeach
+        @empty
+            <div class="mx-auto mt-12 w-70">
+                <div class="">
+                    <img src="{{ asset('img/problem.svg') }}" class="mx-auto mix-blend-luminosity" alt="pas de resultat" />
+                </div>
+                <div class="mt-6 font-bold text-center text-gray-400">
+                    Pas de résultat
+                </div>
+            </div>
+
+        @endforelse
     </div>
     <div class="my-8">
         {{-- {{ $ideas->links() }} --}}

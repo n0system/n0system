@@ -30,33 +30,35 @@
                             {{ $idea->status->name }}
                         </div>
                         <div class="relative" x-data="{isOpen: false}">
-                            <button  @click="isOpen = !isOpen"
+                            <button @click="isOpen = !isOpen"
                                 class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
 
                             </button>
                             <ul x-show.transition.origin.top.left="isOpen" x-cloak
-                                    @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
-                                    class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
-                                    <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Réviser post
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Supprimer post
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Spam
-                                        </a>
-                                    </li>
+                                @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
+                                class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
+                                <li>
+                                    <a href="#" @click="
+                                        isOpen = false
+                                        $dispatch('edit-modal')"
+                                         class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        Réviser post
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        Supprimer post
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#"
+                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        Spam
+                                    </a>
+                                </li>
 
-                                </ul>
+                            </ul>
                         </div>
                     </div>
                     <div class="flex items-center mt-4 md:mt-0 md:hidden">

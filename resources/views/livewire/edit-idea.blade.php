@@ -1,11 +1,13 @@
-<div class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+<div x-cloak x-data="{isOpen :false}" x-show="isOpen" @keydown.escape.window="isOpen = false"
+    @edit-modal.window ="isOpen = true" class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title"
+    role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen">
         <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
         <div
             class="py-4 overflow-hidden transition-all transform bg-white rounded-tl-lg rounded-tr-lg modal sm:max-w-lg sm:w-full">
 
             <div class="absolute top-0 right-0 pt-4 pr-4">
-                <button class="text-gray-400 hover:text-gray-500">
+                <button @click="isOpen = false" class="text-gray-400 hover:text-gray-500">
                     <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -14,7 +16,8 @@
             </div>
             <div class="px-4 pt-5 pb-4 bg-white sm:p-6 sm:pb-4">
                 <h3 class="text-lg font-medium text-center text-gray-900">Mettre à jour </h3>
-                <p class="px-5 mt-4 text-xs leading-5 text-center text-gray-500">Vous avez une 1h pour mettre à jour votre idée</p>
+                <p class="px-5 mt-4 text-xs leading-5 text-center text-gray-500">Vous avez une 1h pour mettre à jour
+                    votre idée</p>
                 <form wire:submit.prevent="createIdea" action="#" method="post" class="px-4 py-6 space-y-4 ">
                     <div>
                         <input wire:model.defer="title" required type="text"

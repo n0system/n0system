@@ -51,7 +51,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Idea::class);
     }
-    public function votes(){
-        return $this->belongsToMany(Idea::class,'votes');
+    public function votes()
+    {
+        return $this->belongsToMany(Idea::class, 'votes');
+    }
+
+    public function isAdmin()
+    {
+        return in_array($this->email, [
+            'test@test.com'
+        ]);
     }
 }

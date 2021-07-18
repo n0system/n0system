@@ -8,6 +8,7 @@
         </a>
     </div>
     <livewire:idea-show :idea="$idea" :votesCount="$votesCount" />
+    <livewire:edit-idea :idea="$idea" />
     <!-- comments-container -->
     <div class="relative pt-4 my-8 mt-1 space-y-6 comments-container md:ml-22">
         <!-- comment-container -->
@@ -34,8 +35,10 @@
                             <div class="">il y a 10h</div>
                         </div>
                         <div x-data="{isOpen: false}" class="flex items-center space-x-2">
+                            <div class="relative">
                             <button @click="isOpen = !isOpen" class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-                                <ul x-show.transition.origin.top.left="isOpen" x-cloak @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
+                            </button>
+                            <ul x-show.transition.origin.top.left="isOpen" x-cloak @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
                                     class="absolute z-30 w-64 py-3 ml-8 font-semibold text-left bg-white shadow-dialog rounded-xl">
                                     <li>
                                         <a href="#" class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
@@ -48,7 +51,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </button>
+                        </div>
                         </div>
                     </div>
                 </div>

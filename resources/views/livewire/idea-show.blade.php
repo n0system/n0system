@@ -29,26 +29,35 @@
                             class="{{ $idea->status->classes }} px-4 py-2 font-bold leading-none text-center uppercase  rounded-full text-xxs w-28 h-7">
                             {{ $idea->status->name }}
                         </div>
-                        <button x-data="{isOpen: false}" @click="isOpen = !isOpen"
-                            class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-                            <ul x-show.transition.origin.top.left="isOpen" x-cloak
-                                @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
-                                class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
-                                <li>
-                                    <a href="#"
-                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                        Spam
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                        Supprimer post
-                                    </a>
-                                </li>
-                            </ul>
-                        </button>
+                        <div class="relative" x-data="{isOpen: false}">
+                            <button  @click="isOpen = !isOpen"
+                                class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
 
+                            </button>
+                            <ul x-show.transition.origin.top.left="isOpen" x-cloak
+                                    @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
+                                    class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
+                                    <li>
+                                        <a href="#"
+                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                            Réviser post
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                            Supprimer post
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"
+                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                            Spam
+                                        </a>
+                                    </li>
+
+                                </ul>
+                        </div>
                     </div>
                     <div class="flex items-center mt-4 md:mt-0 md:hidden">
                         <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
@@ -114,10 +123,7 @@
             @if (auth()->user()->isAdmin())
             <livewire:set-status :idea="$idea" />
             @endif
-
             @endauth
-
-
         </div>
         <!-- fin buttons-container -->
         <div class="items-center hidden space-x-3 md:flex">

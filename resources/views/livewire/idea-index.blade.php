@@ -53,9 +53,10 @@ const ignores = ['button','svg','path','a']
                         class="{{ $idea->status->classes }} px-4 py-2 font-bold leading-none text-center uppercase  rounded-full text-xxs w-28 h-7">
                         {{ $idea->status->name }}
                     </div>
-                    <button @click="isOpen = !isOpen"
-                        class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
-
+                    <div class="relative">
+                        <button @click="isOpen = !isOpen"
+                            class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
+                        </button>
                         <ul x-show.transition.origin.top.left="isOpen" x-cloak @keydown.escape.window="isOpen = false"
                             @click.away="isOpen = false"
                             class="absolute py-3 font-semibold text-left bg-white -right-16 md:ml-8 md:top-6 md:left-0 w-44 shadow-dialog rounded-xl">
@@ -70,7 +71,7 @@ const ignores = ['button','svg','path','a']
                                 </a>
                             </li>
                         </ul>
-                    </button>
+                    </div>
                 </div>
                 <div class="flex items-center mt-4 md:mt-0 md:hidden">
                     <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">

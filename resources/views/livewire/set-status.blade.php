@@ -48,13 +48,13 @@
                         </svg>
                         <span class="ml-2">Pièce jointe</span>
                     </button>
-                    <button x type="submit" class="flex items-center justify-center w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
+                    <button x type="submit" class="flex items-center justify-center w-1/2 px-6 py-3 text-xs font-semibold text-white transition duration-150 ease-in border disabled:opacity-50 bg-blue border-blue h-11 rounded-xl hover:bg-blue-hover">
                         Mettre à jour
                     </button>
                 </div>
                 <div>
                     <label for="notify_voters" class="inline-flex items-center">
-                        <input type="checkbox" name="notify_voters" id="notify_voters" class="bg-gray-200 rounded-xl">
+                        <input wire:model="notifyAllVoters" type="checkbox" name="notify_voters" id="notify_voters" class="bg-gray-200 rounded-xl">
                         <span class="ml-2 font-semibold text-xxs"> notifier les voteurs </span>
                     </label>
 

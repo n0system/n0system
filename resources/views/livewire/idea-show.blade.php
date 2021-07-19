@@ -37,14 +37,16 @@
                             <ul x-show.transition.origin.top.left="isOpen" x-cloak
                                 @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
                                 class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
-                                <li>
-                                    <a href="#" @click="
-                                        isOpen = false
-                                        $dispatch('edit-modal')"
-                                         class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                        Réviser post
-                                    </a>
-                                </li>
+                                @can('update', $idea)
+                                    <li>
+                                        <a href="#" @click="
+                                                    isOpen = false
+                                                    $dispatch('edit-modal')"
+                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                            Réviser post
+                                        </a>
+                                    </li>
+                                @endcan
                                 <li>
                                     <a href="#"
                                         class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
@@ -68,16 +70,16 @@
                             <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
                         </div>
                         @if ($hasVoted)
-                        <button
-                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in border bg-blue rounded-xl text-xxs hover:bg-blue-hover">
-                            Voté
-                        </button>
+                            <button
+                                class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in border bg-blue rounded-xl text-xxs hover:bg-blue-hover">
+                                Voté
+                            </button>
 
                         @else
-                        <button
-                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
-                            Voter
-                        </button>
+                            <button
+                                class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
+                                Voter
+                            </button>
                         @endif
 
                     </div>
@@ -122,9 +124,9 @@
                 </div>
             </div>
             @auth
-            @if (auth()->user()->isAdmin())
-            <livewire:set-status :idea="$idea" />
-            @endif
+                @if (auth()->user()->isAdmin())
+                    <livewire:set-status :idea="$idea" />
+                @endif
             @endauth
         </div>
         <!-- fin buttons-container -->
@@ -134,15 +136,15 @@
                 <div class="text-xs leading-none text-gray-400">Votes </div>
             </div>
             @if ($hasVoted)
-            <button type="button" wire:click.prevent="vote"
-                class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
-                <span class="">Voté </span>
-            </button>
+                <button type="button" wire:click.prevent="vote"
+                    class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
+                    <span class="">Voté </span>
+                </button>
             @else
-            <button type="button" wire:click.prevent="vote"
-                class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-                <span class="">Voter </span>
-            </button>
+                <button type="button" wire:click.prevent="vote"
+                    class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
+                    <span class="">Voter </span>
+                </button>
             @endif
 
 

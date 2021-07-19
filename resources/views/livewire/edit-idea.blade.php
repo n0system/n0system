@@ -1,12 +1,10 @@
 <div x-cloak x-data="{isOpen :false}" x-show="isOpen" @keydown.escape.window="isOpen = false"
-    @edit-modal.window ="isOpen = true" class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title"
-    role="dialog" aria-modal="true">
+    x-init="window.livewire.on('ideaWasUpdated',() => {isOpen =false })" @edit-modal.window="isOpen = true"
+    class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen">
-        <div
-        x-show.transition.origin.bottom.duration.300ms="isOpen"
-        class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
-        <div
-        x-show.transition.opacity="isOpen"
+        <div x-show.transition.origin.bottom.duration.300ms="isOpen"
+            class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
+        <div x-show.transition.opacity="isOpen"
             class="py-4 overflow-hidden transition-all transform bg-white rounded-tl-lg rounded-tr-lg modal sm:max-w-lg sm:w-full">
 
             <div class="absolute top-0 right-0 pt-4 pr-4">
@@ -21,35 +19,34 @@
                 <h3 class="text-lg font-medium text-center text-gray-900">Mettre à jour </h3>
                 <p class="px-5 mt-4 text-xs leading-5 text-center text-gray-500">Vous avez une 1h pour mettre à jour
                     votre idée</p>
-                <form wire:submit.prevent="createIdea" action="#" method="post" class="px-4 py-6 space-y-4 ">
+                <form wire:submit.prevent="updateIdea" action="#" method="post" class="px-4 py-6 space-y-4 ">
                     <div>
                         <input wire:model.defer="title" required type="text"
                             class="w-full px-4 py-2 text-sm placeholder-gray-900 bg-gray-100 border-none rounded-xl"
                             placeholder="Votre idée">
                         @error('title')
-                        <p class="mt-1 text-xs text-red">{{$message}}</p>
+                            <p class="mt-1 text-xs text-red">{{ $message }}</p>
                         @enderror
 
                     </div>
                     <div>
                         <select wire:model.defer="category" name="category_add" id="category_add"
                             class="w-full px-4 py-2 bg-gray-100 border-none rounded-xl">
-                            {{-- @foreach ($categories as $category)
-                            <option value="{{ $category->id }}"> {{ $category->name }}</option>
-                            @endforeach --}}
-                            <option value="1"> catégorie 1</option>
-                            <option value="2"> catégorie 2</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}"> {{ $category->name }}</option>
+                            @endforeach
+
                         </select>
                     </div>
                     @error('category')
-                    <p class="mt-1 text-xs text-red">{{$message}}</p>
+                        <p class="mt-1 text-xs text-red">{{ $message }}</p>
                     @enderror
                     <div>
                         <textarea wire:model.defer="description" name="idea" id="idea" cols="30" rows="4"
                             class="w-full px-4 py-2 text-sm placeholder-gray-900 bg-gray-100 rounded-xl"
                             placeholder="Description" required></textarea>
                         @error('description')
-                        <p class="mt-1 text-xs text-red">{{$message}}</p>
+                            <p class="mt-1 text-xs text-red">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="flex items-center justify-between space-x-3">

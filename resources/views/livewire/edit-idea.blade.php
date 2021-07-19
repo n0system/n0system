@@ -2,8 +2,11 @@
     @edit-modal.window ="isOpen = true" class="fixed inset-0 z-10 overflow-y-auto" aria-labelledby="modal-title"
     role="dialog" aria-modal="true">
     <div class="flex items-end justify-center min-h-screen">
-        <div class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
         <div
+        x-show.transition.origin.bottom.duration.300ms="isOpen"
+        class="fixed inset-0 transition-opacity bg-gray-500 bg-opacity-75" aria-hidden="true"></div>
+        <div
+        x-show.transition.opacity="isOpen"
             class="py-4 overflow-hidden transition-all transform bg-white rounded-tl-lg rounded-tr-lg modal sm:max-w-lg sm:w-full">
 
             <div class="absolute top-0 right-0 pt-4 pr-4">

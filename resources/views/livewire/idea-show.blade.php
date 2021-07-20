@@ -39,20 +39,22 @@
                                 class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
                                 @can('update', $idea)
                                     <li>
-                                        <a href="#" @click="
-                                                    isOpen = false
-                                                    $dispatch('edit-modal')"
+                                        <a href="#" @click=" isOpen = false $dispatch('edit-modal')"
                                             class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Réviser post
+                                            Réviser
                                         </a>
                                     </li>
                                 @endcan
-                                <li>
-                                    <a href="#"
-                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                        Supprimer post
-                                    </a>
-                                </li>
+                                @can('delete', $idea)
+                                    <li>
+                                        <a href="#" @click="
+                                        isOpen = false
+                                        $dispatch('delete-modal')"
+                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                            Supprimer
+                                        </a>
+                                    </li>
+                                @endcan
                                 <li>
                                     <a href="#"
                                         class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">

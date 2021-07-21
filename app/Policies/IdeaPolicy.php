@@ -67,6 +67,17 @@ class IdeaPolicy
     {
         return $user->id == $idea->user->id;
     }
+    /**
+     * Determine whether the user can delete the model.
+     *
+     * @param  \App\Models\User  $user
+     * @param  \App\Models\Idea  $idea
+     * @return mixed
+     */
+    public function spam(User $user, Idea $idea)
+    {
+        return auth()->check();
+    }
 
     /**
      * Determine whether the user can restore the model.

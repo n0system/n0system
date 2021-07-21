@@ -14,7 +14,7 @@
                 <option value="last">Récents</option>
                 <option value="best">Les Meilleurs</option>
                 <option value="myideas">Mes idées</option>
-                <option value="Filtre 4">Filtre 4</option>
+                <option value="spam">SPAM</option>
             </select>
         </div>
         <div class="relative w-full md:w-2/3">

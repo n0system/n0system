@@ -29,6 +29,7 @@
                             class="{{ $idea->status->classes }} px-4 py-2 font-bold leading-none text-center uppercase  rounded-full text-xxs w-28 h-7">
                             {{ $idea->status->name }}
                         </div>
+                        @auth()
                         <div class="relative" x-data="{isOpen: false}">
                             <button @click="isOpen = !isOpen"
                                 class="relative px-4 py-2 transition duration-150 ease-in bg-gray-100 border rounded-full hover:bg-gray-200 h-7">&bull;&bull;&bull;
@@ -38,25 +39,27 @@
                                 @keydown.escape.window="isOpen = false" @click.away="isOpen = false"
                                 class="absolute z-30 py-3 font-semibold text-left bg-white -right-16 w-44 md:ml-8 md:top-6 md:left-0 shadow-dialog rounded-xl">
                                 @can('update', $idea)
-                                    <li>
-                                        <a href="#" @click=" isOpen = false $dispatch('edit-modal')"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Réviser
-                                        </a>
-                                    </li>
+                                <li>
+                                    <a href="#" @click=" isOpen = false $dispatch('edit-modal')"
+                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        Réviser
+                                    </a>
+                                </li>
                                 @endcan
                                 @can('delete', $idea)
-                                    <li>
-                                        <a href="#" @click="
+                                <li>
+                                    <a href="#" @click="
                                         isOpen = false
                                         $dispatch('delete-modal')"
-                                            class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
-                                            Supprimer
-                                        </a>
-                                    </li>
+                                        class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
+                                        Supprimer
+                                    </a>
+                                </li>
                                 @endcan
                                 <li>
-                                    <a href="#"
+                                    <a href="#" @click="
+                                        isOpen = false
+                                        $dispatch('spam-modal')"
                                         class="block px-5 py-3 transition duration-150 ease-in hover:bg-gray-100">
                                         Spam
                                     </a>
@@ -64,6 +67,7 @@
 
                             </ul>
                         </div>
+                        @endauth
                     </div>
                     <div class="flex items-center mt-4 md:mt-0 md:hidden">
                         <div class="h-10 px-4 py-2 pr-8 text-center bg-gray-100 rounded-xl">
@@ -72,16 +76,16 @@
                             <div class="font-semibold leading-none text-gray-400 text-xxs">Votes</div>
                         </div>
                         @if ($hasVoted)
-                            <button
-                                class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in border bg-blue rounded-xl text-xxs hover:bg-blue-hover">
-                                Voté
-                            </button>
+                        <button
+                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in border bg-blue rounded-xl text-xxs hover:bg-blue-hover">
+                            Voté
+                        </button>
 
                         @else
-                            <button
-                                class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
-                                Voter
-                            </button>
+                        <button
+                            class="w-20 px-4 py-3 -m-5 font-bold uppercase transition duration-150 ease-in bg-gray-200 border rounded-xl text-xxs hover:border-gray-400">
+                            Voter
+                        </button>
                         @endif
 
                     </div>
@@ -126,9 +130,9 @@
                 </div>
             </div>
             @auth
-                @if (auth()->user()->isAdmin())
-                    <livewire:set-status :idea="$idea" />
-                @endif
+            @if (auth()->user()->isAdmin())
+            <livewire:set-status :idea="$idea" />
+            @endif
             @endauth
         </div>
         <!-- fin buttons-container -->
@@ -138,15 +142,15 @@
                 <div class="text-xs leading-none text-gray-400">Votes </div>
             </div>
             @if ($hasVoted)
-                <button type="button" wire:click.prevent="vote"
-                    class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
-                    <span class="">Voté </span>
-                </button>
+            <button type="button" wire:click.prevent="vote"
+                class="w-32 px-6 py-3 ml-2 text-xs font-semibold text-white uppercase transition duration-150 ease-in border bg-blue border-blue-hover h-11 rounded-xl hover:bg-blue-hover">
+                <span class="">Voté </span>
+            </button>
             @else
-                <button type="button" wire:click.prevent="vote"
-                    class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
-                    <span class="">Voter </span>
-                </button>
+            <button type="button" wire:click.prevent="vote"
+                class="w-32 px-6 py-3 ml-2 text-xs font-semibold uppercase transition duration-150 ease-in bg-gray-200 border border-gray-200 h-11 rounded-xl hover:border-gray-400">
+                <span class="">Voter </span>
+            </button>
             @endif
 
 

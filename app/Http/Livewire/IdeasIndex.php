@@ -44,6 +44,11 @@ class IdeasIndex extends Component
                 return redirect()->route('login');
             }
         }
+        if ($this->filter == 'spam') {
+            if (!auth()->check()) {
+                return redirect()->route('login');
+            }
+        }
     }
 
     public function queryStringUpdatedStatus($newStatus)
@@ -75,6 +80,11 @@ class IdeasIndex extends Component
                     ->when($this->filter && $this->filter == 'last', function ($query) {
                         return $query
                             ->orderByDesc('created_at');
+                    })
+                    ->when($this->filter && $this->filter == 'spam', function ($query) {
+                        return $query
+                            ->where('spam_counter' , '>', 0)
+                            ->orderByDesc('spam_counter');
                     })
                     ->when($this->filter && $this->filter == 'myideas', function ($query) {
                         return $query
